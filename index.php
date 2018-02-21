@@ -12,8 +12,7 @@ spl_autoload_register(
     }
 });
 
-$lifetime = require_once 'app\conf\session.php';
-
+$lifetime = 40;
 session_start([
     'cookie_lifetime' => $lifetime * 60,
 ]);
