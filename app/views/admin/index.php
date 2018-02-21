@@ -36,8 +36,8 @@
                         <td class="text-center"><?php echo $user['gender_name'] ?></td>
                         <td class="text-center"><?php echo $user['admin'] ?></td>
                         <td class="text-center">
-                            <button id="<?php echo $user['id'] ?>" type="button" class="edit btn btn-warning"><i class="fas fa-cog"></i></button>
-                            <button type="button" class="btn btn-danger"><i class="fas fa-times"></i></button>
+                            <button id="<?php echo $user['id'] ?>" type="button"  class="edit btn btn-warning"><i class="fas fa-cog"></i></button>
+                            <a id="<?php echo $user['id'] ?>" href="/admin/user/delete/<?php echo $user['id'] ?>" class="btn btn-danger"><i class="fas fa-times"></i></a>
                         </td>
                     </tr>
                     <?php $i = $i + 1; ?>

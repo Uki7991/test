@@ -19,4 +19,16 @@ class UserController extends Controller {
 
     }
 
+    public function delete($id) {
+        $vars = [
+            'id' => $id,
+        ];
+
+        $this->model->delete($vars);
+        if ($this->checkAuth('admin'))
+            $this->view->redirect('/admin');
+
+        $this->view->redirect('/login');
+    }
+
 }

@@ -61,9 +61,9 @@ return [
         'Action' => 'show',
     ],
 
-    '/user/delete/([0-9]+)' => [
+    '/admin/user/delete/([0-9]+)' => [
         'Controller' => 'user',
-        'Action' => 'show',
+        'Action' => 'delete',
     ],
 
 ];

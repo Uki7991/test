@@ -16,4 +16,8 @@ class User extends Model {
         return $result;
     }
 
+    public function delete($vars) {
+        $this->db->query('DELETE FROM users WHERE id = :id', $vars);
+    }
+
 }
