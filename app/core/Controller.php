@@ -8,7 +8,7 @@ abstract class Controller {
 
 	public $route;
 	public $view;
-	
+
 	public function __construct($route)
 	{
 		$this->route = $route;
@@ -23,4 +23,18 @@ abstract class Controller {
 		}
 		debug($path);
 	}
+
+	public function checkAuth($name) {
+	    if (isset($_SESSION['ADMIN']) && isset($_SESSION['USER']) && isset($_SESSION['USER_ID']) && ($_SESSION['ADMIN'] == mb_strtoupper($name, 'utf-8'))) {
+	        return true;
+        }
+        elseif (isset($_SESSION['USER']) && isset($_SESSION['USER_ID']) && ($_SESSION['USER'] == mb_strtoupper($name, 'utf-8'))) {
+	        return true;
+        }
+        elseif (!isset($_SESSION['USER']) && !isset($_SESSION['USER_ID'])) {
+            $_SESSION['GUEST'] = true;
+            return false;
+        }
+        return false;
+    }
 }

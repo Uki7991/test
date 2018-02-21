@@ -5,11 +5,8 @@ namespace app\core;
 
 class View {
 
+    public $errors;
 	public $layout = 'default';
-	
-	public function __construct() {
-
-	}
 
 	public function render($path, $title, $vars = []) {
 		extract($vars);
@@ -20,9 +17,10 @@ class View {
 			require 'app/views/layouts/' . $this->layout . '.php';
 		}
 		else {
-			$this->errorCode(404);
-			// echo "View not found: " . 'app/views/' . $this->path . '.php';
+//			$this->errorCode(404);
+			 echo "View not found: " . 'app/views/' . $this->path . '.php';
 		}
+		exit;
 	}
 
 	public function redirect($url) {

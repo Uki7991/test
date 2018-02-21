@@ -24,11 +24,17 @@ class Router {
 
     public function match() {
         $url = $_SERVER['REQUEST_URI'];
+
         foreach ($this->routes as $route => $params) {
+
             if (preg_match($route, $url, $matches)) {
+                $params['params'] = preg_replace($route, '$1', $url);
                 $this->params = $params;
+
+
                 return true;
-            } 
+            }
+
         }
         return false;
     }
@@ -40,6 +46,8 @@ class Router {
                 $action = $this->params['Action'];
                 if (method_exists($path, $action)) {
                     $controller = new $path($this->params);
+                    if (!empty($this->params['params']))
+                        $controller->$action($this->params['params']);
                     $controller->$action();
                 }
                 else {

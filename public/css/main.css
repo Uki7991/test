@@ -1,0 +1,22 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.back {
+    position:absolute;
+    filter: brightness(40%);
+}
+
+.main {
+    background-image: url(/public/img/back.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.about-me {
+    background-image: url(/public/img/space.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}

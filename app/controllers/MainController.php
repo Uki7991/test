@@ -9,13 +9,11 @@ class MainController extends Controller
 
 	public function index() {
 
-		$news = $this->model->getNews();
+		$this->view->render('main', 'Main page');
+	}
 
-		$vars = [
-			'news' => $news,
-		];
-
-		$this->view->render('main', 'Main page', $vars);
-	}	
+	public function about() {
+	    $this->view->render('about', 'About me');
+    }
 
 }
